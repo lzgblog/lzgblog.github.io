@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>if ('serviceWorker' in navigator) {
+  var isLocalDev = ['localhost', '127.0.0.1', '0.0.0.0'].indexOf(location.hostname) !== -1
+  if (isLocalDev) {
+    navigator.serviceWorker.getRegistrations().then(function (rs) {
+      rs.forEach(function (r) { r.unregister() })
+    })
+  } else {
+    navigator.serviceWorker.register('/sw.js').then(function () {
+      if (localStorage.getItem('install') !== 'true') {
+        localStorage.setItem('install', 'true')
+        location.reload()
+      }
+    })
+  }
+}
+</script><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>旧时光 | 随风落叶</title><meta name="keywords" content="博客,主题,卡片式UI"><meta name="author" content="lzg"><meta name="copyright" content="lzg"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="主题功能里程碑 2022-08  站点从 Butterfly 4.3.1 起步，开始第一轮美化：自定义字体、加载动画、右键菜单、鼠标指针特效  2022-10  首页卡片改版：文章卡片、分类磁贴、轮播图三件套成型 新增友人帐、朋友圈、画廊、八音盒等独立页面  2023-03  主题正式从 butterfly 改名为 fomalhaut，配置文件同步为 _config.fomalhaut.yml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="旧时光">
+<meta property="og:url" content="https://example.com/site/time/index.html">
+<meta property="og:site_name" content="随风落叶">
+<meta property="og:description" content="主题功能里程碑 2022-08  站点从 Butterfly 4.3.1 起步，开始第一轮美化：自定义字体、加载动画、右键菜单、鼠标指针特效  2022-10  首页卡片改版：文章卡片、分类磁贴、轮播图三件套成型 新增友人帐、朋友圈、画廊、八音盒等独立页面  2023-03  主题正式从 butterfly 改名为 fomalhaut，配置文件同步为 _config.fomalhaut.yml">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://example.com/assets/titlepicture/IMG_0510.JPG">
+<meta property="article:published_time" content="2022-08-31T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-24T16:00:09.469Z">
+<meta property="article:author" content="lzg">
+<meta property="article:tag" content="博客,主题,卡片式UI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://example.com/assets/titlepicture/IMG_0510.JPG"><link rel="shortcut icon" href="/"><link rel="canonical" href="https://example.com/site/time/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//events.vercount.one"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://registry.npmmirror.com/@fortawesome/fontawesome-free/6.0.0/files/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '旧时光',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2026-10-25 00:00:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preconnect" href="https://registry.npmmirror.com"><link rel="preconnect" href="https://registry.npmmirror.com" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preload" as="font" type="font/woff2" href="https://cdn.jsdelivr.net/npm/@fontsource/lxgw-wenkai-tc@5/files/lxgw-wenkai-tc-chinese-traditional-400-normal.woff2" crossorigin><link rel="preconnect" href="https://sdk.51.la"><link rel="preconnect" href="https://sdk.51.la" crossorigin><link rel="dns-prefetch" href="https://at.alicdn.com"><link rel="dns-prefetch" href="https://lib.baomitu.com"><link rel="stylesheet" href="/css/stats.css?v=20261005"><link rel="stylesheet" href="/css/twikoo.css?v=20261018-owo"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="bgFilterParam"></style><span id="fps" aria-hidden="true"></span><style id="defineBg">:root{--default-bg:url(https://picsum.photos/id/1015/1920/1080);--darkmode-bg:url(https://picsum.photos/id/1044/1920/1080);--mobileday-bg:url(https://picsum.photos/id/1018/1920/1080);--mobilenight-bg:url(https://picsum.photos/id/1039/1920/1080);}</style><style id="menu_shadow"></style><style id="nav-display"></style><style id="aside-show"></style><style id="aside-pos"></style><link rel="stylesheet" href="/css/site-inject.css?v=20261015-fps4"><link rel="stylesheet" href="/css/navigation.css?v=20261011-nav3"><link rel="stylesheet" href="/css/mobile-drawer.css?v=20261008"><link rel="stylesheet" href="/css/avatar-glow.css?v=20261004q"><link rel="stylesheet" href="/css/timeline-archive.css?v=20261011d"><script defer src="/js/timeline-archive.js?v=20261011b"></script><link rel="stylesheet" href="/css/about-page.css?v=20261006"><script src="/js/inject/ping-route-boot.js"></script><script src="/js/inject/ping-route.js"></script><script src="/js/inject/beauty-boot.js?v=20261015-solid3"></script><script src="/js/inject/right-menu-state-boot.js"></script><script>window.fomalNightConfig=window.fomalNightConfig||{enabled:true,latLng:null,themeKey:'theme'}</script><script src="/js/inject/daynight-boot.js?v=20261014-nightboot2"></script><script src="/js/inject/typewriter.js?v=20261004b"></script><link rel="stylesheet" href="/css/typewriter.css?v=20261004"><link rel="stylesheet" href="/css/paperclip.css?v=20261005-mobile1"><link rel="stylesheet" href="/css/archive-page.css?v=20261018-scrollfix"><script defer src="/js/inject/archive-page.js?v=20261018-scrollfix"></script><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="/css/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="随风落叶" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_1009.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1"></use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1"></use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle"></use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban"></use></svg><span class="menu_word" style="font-size:17px"> 画廊</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche"></use></svg><span class="menu_word" style="font-size:17px"> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan"></use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie"></use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">随风落叶</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1"></use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1"></use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle"></use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban"></use></svg><span class="menu_word" style="font-size:17px"> 画廊</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche"></use></svg><span class="menu_word" style="font-size:17px"> 网址导航</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan"></use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie"></use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-huahua"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="page-site-info"><h1 id="site-title">旧时光</h1></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>主题功能里程碑</p>
+</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2022-08</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>站点从 Butterfly 4.3.1 起步，开始第一轮美化：自定义字体、加载动画、右键菜单、鼠标指针特效</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2022-10</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>首页卡片改版：文章卡片、分类磁贴、轮播图三件套成型</li>
+<li>新增友人帐、朋友圈、画廊、八音盒等独立页面</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-03</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>主题正式从 butterfly 改名为 fomalhaut，配置文件同步为 <code>_config.fomalhaut.yml</code></li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-03</p>
+</div></div><div class='timeline-item-content'><ol>
+<li><strong>屎山重构</strong>：<code>fomal.js</code> 从 2973 行拆成 105 行主引导 + 10 个模块/数据文件；配置里的内联样式与脚本抽成 <code>site-inject.css</code> 与 6 个注入脚本；<code>custom.css</code> 删掉 341 行死代码并加上文件头地图</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-04</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>关于页重做：顶部 Hero + 线路卡片 + 实测参数对照表，卡片右下角挂「实时延迟」徽标，可单条重测或一键重测全部</li>
+<li>配色全量改为「主题色派生」（<code>color-mix</code>），换主题色整页跟着走，不再有写死的绿色</li>
+<li>部署链路新增一键脚本 <code>npm run deploy:vercel</code>；AI 助手前端脚本带上内容版本号，改完访客不会拿到旧缓存</li>
+<li>手机端抽屉重做（独立样式表，13 个小节）：面板、字标、签名、头像、统计胶囊、菜单与二级菜单、遮罩、入场动效、深色与无障碍</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-05</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>首屏关键链：给默认正文字体补 <code>preload</code>（浏览器不用再等 CSS 解析完才发现字体）；夜间默认壁纸统一到与 JS 逐字一致的地址，避免同一张图下两份</li>
+<li>动画生命周期：雪花 / 星空从「不可见就跳过绘制」升级为「不可见即退出 rAF」，恢复交给失效回调；帧率监测改成「面板开着才起循环」，采样封装成带 generation 的闭包</li>
+<li>滚动监听：修掉 <code>window.scroll = () =&gt; btf.throttle(fn, 200)()</code> 这种「工厂 + 当场调用」的假节流；<code>btf.throttle</code> 补 <code>cancel()</code>；pjax 清理里统一解绑</li>
+<li>指针与滚动读写分离：小猫咪的指针输入只记最新值、下一帧先读几何再增量写；手机端自绘滚动条把测量放在读阶段、创建与写入放在写阶段</li>
+<li>评论区重做：三张独立白卡浮在压灰一档的面板上，配整块焦点环（<code>source/css/twikoo.css</code>）</li>
+<li>侧栏作者卡加回形针装饰（新增 <code>source/css/paperclip.css</code>，白天细长蓝白款 / 夜间冰蓝夜光）</li>
+<li>新增 4 个 <code>node:test</code> 回归脚本（光标效果、帧率生命周期、手机滚动条、滚动监听），可用环境变量指向 <code>bak/</code> 里的基线做前后对比（<code>tools/tests/</code>）</li>
+<li>清理 13 个死文件（<code>leaves.js</code> / <code>bibi.js</code> / <code>love.js</code>、tag-map 的 proj4 两条、<code>local-search.js</code>、<code>tw_cn.js</code>、旧 gulp 素材等）</li>
+<li>排查「同一页面线上比本地卡」：先证明不是部署问题 —— 线上 <code>js/modules/</code> 与本地 <code>public/js/modules/</code> 下的同名模块脚本过一遍同版本 terser 后逐字节一致，<code>css/index.css</code> 也只是 clean-css 的等价改写，规则级 diff 没有语义丢失；同一浏览器全新加载，线上 85fps、本地 84fps。真正的分叉在 DevTools Performance 里：线上单帧 75ms 有 64ms 花在「重新计算样式」，本地同帧只有 26ms 渲染 + 26ms 绘制。无痕窗口（禁用全部扩展）打开即与本地一样流畅，单独关掉广告拦截器立刻恢复 —— 拦截器的隐藏规则按域名下发，<code>localhost</code> 与 <code>127.0.0.1</code> 天然被排除，所以只有线上受影响。结论在浏览器侧，站点代码一行没改</li>
+<li>顺带修掉 <code>themes/fomalhaut/source/sw.js</code> 的两个真缺陷：① 缓存失效只认 index.html 内容的 djb2 哈希，其余资源走 cache-first + 24 小时 TTL，某次发版只改 JS 与 CSS 却忘了改 <code>?v=</code> 缓存戳时 URL 与 HTML 都没变，回访者会继续跑旧代码最长 24 小时；现在文本资源（html/js/mjs/css/json/xml/txt/map/webmanifest/manifest/svg）的 TTL 压到 10 分钟、图片与字体与音视频仍按 24 小时，<code>CACHE_NAME</code> 提到 <code>ICDNCache-v3</code>，老访客 activate 时整体丢掉 v2 残片。② <code>getFileType()</code> 白名单只列到 ttf，其余一律 text/plain，站内会走 SW 的 <code>.cur</code> 自定义光标与 <code>atom.xml</code> / <code>sitemap.xml</code> / <code>search.xml</code> 都被猜错类型；补齐 cur/avif/bmp/apng/otf/eot/xml/txt/map/webmanifest/manifest/mp3/m4a/mp4/webm/pdf/wasm</li>
+<li>新增 <code>tools/tests/sw-cache.test.cjs</code>：纯 VM 跑 Service Worker 源码（caches / fetch / Response 全打桩，不联网、不起服务），断言覆盖域名白名单、回源到对象存储、二次请求吃缓存，以及「js 11 分钟旧 → 触发一次后台校验，5 分钟新 → 不动，webp 25 小时旧 → 才校验」的 TTL 分流</li>
+<li>线路探测不再污染 SW 缓存：<code>source/js/inject/ping-route.js</code> 每次探测都用「站点自身域名 + 新的随机串」请求 <code>/?__pr=xxx-N</code>，在线上会被 sw.js 接住走 HTML 分支（改写回源、下载整份 index.html 约 98KB、写进 ICDNCache）；缓存键含查询串而随机串每次都不同，这些条目以后永远读不到，而加载、每次 pjax、每 5 分钟各来一轮，逛得越久堆得越多。现在带 <code>__pr=</code> 的请求只做「改写 + 回源」不落地缓存，徽标量到的仍是到源站的往返、数字不变；回归测试同步加到 9 项</li>
+<li>AI 助手「吐字」卡顿：先证伪了最像元凶的一条 —— 把 <code>esc()</code> 与 <code>md()</code> 从 <code>source/js/ai-chat.js</code> 按行号切出来做 Node 微基准，8000 字全量重解析 2667 次累计只有 195ms（单次 <code>md(4000)</code> 只有 0.06ms），O(n²) 是真的但常数可忽略；真凶在每个分片都 <code>bub.innerHTML = md(acc)</code> 整块重建气泡，加上 <code>scrollBottom()</code> 里先读 <code>scrollHeight</code> 与 <code>clientHeight</code> 再写 <code>scrollTop</code> 的读写交错，探针在真机上量出 28 秒里有 8.1 秒花在强制同步布局上（3816 次读取）、面板 innerHTML 写了 955 次</li>
+<li>流式渲染改成「分片只累积文本、DOM 提交合并到一帧（rAF + 100ms 兜底）+ 滚动只写不读（stick 标记：手动往上滚不再跟随、滚回底部自动恢复）」：三条 20 秒突发流的帧率 63.7/67.6 → 89.7/89.9/90.0 fps，超过 50ms 的卡顿帧 94/73 → 0，长任务 99 个合计 7.5s → 0，强制布局累计 5925/7015ms → 82/106/107ms，面板写入 944/994 次 → 96/102 次</li>
+<li>AI 助手再往下两步：只重建「尾巴」（<code>tailCut</code> 只在代码围栏外、非有序列表中间、行内 <code>**</code> 与 <code>[ ]</code> 成对的行尾定稿，已定稿部分一次性追加，最大尾块 111 字，Node 按 1/3/11/17 字四种分片步长验证 0 处不一致）与面板空闲时提前建好（点开最差帧 288.9 → 177.8ms、热开 11.2ms）；想让剩下那 180ms 也提前付掉，试过把关闭态改成 <code>visibility:visible</code> + <code>opacity:0</code>，Chromium 不绘制全透明内容，没收益已回滚</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-10</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>美化面板分区：原来的滑条堆拆成「氛围特效 / 互动挂件 / 布局与部件」三块 <code>bf-panel</code>，两列网格、面板变窄时自动单列</li>
+<li>关掉即真正停下：猫咪挂件（<code>nekoOn</code>）与听话鼠标（<code>cursorOn</code>）各一个开关、默认开启；关闭时清掉时钟定时器与 <code>requestAnimationFrame</code>、断开 <code>MutationObserver</code>、指针热路径提前返回，不再「关了还在算」</li>
+<li>主题色支持自定义（<code>settings.js</code>）：面板新增原生取色圈（视觉直径 24px、热区 44px、环宽 3px），值以严格校验的六位 HEX 存进 <code>themeCustomColor</code>，首帧校验不合法就回落默认青绿</li>
+<li>预设色板整理为十一色：删掉紫 / 灰 / 黑三个旧选项、补上抹茶绿；旧键自动迁移（<code>purple → purepurple</code>、<code>gray</code> / <code>black → darkblue</code>），375px 宽自动 6+5 换行</li>
+<li>字体设置预览化（新增 <code>source/js/modules/appearance-fonts.js</code>）：阅读 5 / 个性 3 / 代码 4 三组，正文与代码各一块实时预览；只对合法 key 请求 <code>document.fonts.load</code>、12 秒超时、最新请求胜、失败不写偏好可重试；「恢复默认」只重置两个字体键</li>
+<li>背景设置预览化（新增 <code>source/js/modules/appearance-backgrounds.js</code>）：32 张壁纸 + 8 个渐变 + 7 个纯色 + 8 个 API 图全保留；图库 / 色彩 / 自定义一级，图库再分四类，打开分类才给 <code>&lt;img&gt;</code> 赋 <code>src</code>；切换走 <code>Image</code> 预加载 + 12 秒超时 + token 取消，失败保留旧图</li>
+<li>萤火虫微光（新增 <code>fireflies.js</code>，默认关闭）：纯 CSS 呼吸与慢漂，不起 canvas / rAF / 定时器轮询；桌面 14 只、≤600px 8 只，待在底部 44vh、负层级在正文卡片之后，暂停靠 <code>data-paused</code></li>
+<li>雪花重写（新增 <code>snow.js</code>）：删掉 <code>effects.js</code> 里的 canvas 圆点循环，改用两张预渲染雪片图按大小 / 透明度 / 速度分层下落，dt 上限 50ms、epoch 防过期回调；只有真落到底部才抬高宽度有界的高度图，最高厚度随视口 14–30px，深色 / 后台 / 手机 / 减少动态都暂停</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-11</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>
+<p>导航条改版（新增 <code>source/css/navigation.css</code>）：桌面工具区 44×44px 触控区、间距 8px、两侧留白 24px；≤800px 改 4px / 12px，≤480px 站名 20px；站名容器不再裁掉主题的霓虹光晕，只有 ≤360px 才退回省略号</p>
+</li>
+<li>
+<p>导航磨砂按能力降级：稳定态默认关 <code>backdrop-filter</code>、只留 alpha 0.96 的底色，仅在 ≥1200px + 精细指针 + 支持 <code>hover:hover</code> 时开 6px 轻磨砂 —— 滚动时不再为合成层买单</p>
+</li>
+<li>
+<p>按钮 hover 对齐：首页与「回到顶部」的伪元素宽度改成跟随链接 100%、高度收紧 40px，图标用 flex 居中（原来继承整块尺寸加固定 <code>line-height</code>，视觉总偏上）</p>
+</li>
+<li>
+<p>搜索模块四修（<code>search-lazy.js</code>）：「正在加载搜索…」提示改成脚本自持节点、插在命中容器之前（旧写法把提示写进容器并用属性记插没插过，容器被 instantsearch 换掉后属性还在、清理分支进不去）；<code>onerror</code> 不再被当成功吞掉，库就绪后 300ms 检查搜索框、缺失就回退</p>
+</li>
+<li>
+<p>目录连点互相打架 → <code>scroll-gap-fix.js</code> 升到 v4：加世代号 <code>seq</code>，让过期的滚动校正链立刻退出（v3 每次点击各起一条最多 3 轮的链、互不知情，轮流把页面拉回自己那边）</p>
+</li>
+<li>
+<p>夜间切换改成三拍小剧场（<code>shell.js</code>，默认「标准」档）：日落 / 日出 450ms + 暮色与第一批星 450ms + 星夜铺满 600ms + 从点击位置圆形揭幕 350ms，原来 3000ms 的整屏遮挡压到约 900ms；面板给四档（关闭 / 轻 / 标准 / 华丽）</p>
+</li>
+<li>
+<p>修夜间遮罩残留：连续点击时遮罩改由本次切换自持（不再用「取第一个 <code>.Cuteen_DarkSky</code>」的写法），第二次点击先清掉遮罩再瞬时切换；夜间壁纸用 <code>requestIdleCallback</code> 空闲预热</p>
+</li>
+<li>
+<p>数字框被主题限宽 50px：用 <code>:is(...)</code> 提特异性 + <code>max-width:none</code> + <code>min-width / flex: 0 0 76px</code>，三位数不再裁切；透明度数字并进同一套规则（实测输入框 76×44 CSS px，桌面与 390×844 一致）</p>
+</li>
+<li>
+<p>帧率状态条四轮打磨：紧凑状态条（桌面高 30px / 手机 28px、左下 12px + 安全区）+ <code>data-state</code> 着色，小字对比度从 3.21 提到 4.91；随后按反馈回退配色，再把「琥珀」与「红」的 Lab ΔE 从 43.2 拉到 63.5，两档一眼能分</p>
+</li>
+<li>
+<p>主题色前景统一：新增 <code>themeOnColorInk()</code>，按 WCAG 相对亮度算 <code>--on-theme</code> / <code>--on-theme-away</code>，按钮、选中项、目录当前项与 <code>::selection</code> 都改读它</p>
+</li>
+<li>
+<p>点击涟漪（新增 <code>ripple.js</code>，第 4 个互动挂件、默认关闭）：按下那刻才建 1 个爆发节点 + 两圈同心水纹，700ms 后连节点回收、同时最多 6 枚；关闭时连 <code>pointerdown</code> 监听都不挂</p>
+</li>
+<li>
+<p>回归脚本从 5 个加到 13 个：新增 <code>beauty-switches</code> / <code>theme-color</code> / <code>appearance-fonts</code> / <code>appearance-backgrounds</code> / <code>fireflies</code> / <code>snow</code> / <code>ripple</code> / <code>navigation</code>，<code>fomal.js</code> 的模块地图同步补上 <code>ripple.js</code></p>
+</li>
+<li>
+<p>主题版本升到 v1.0.4：根 README 顶部标题与徽章、<code>package.json</code>、<code>package-lock.json</code> 根 version，连同 <code>themes/fomalhaut/</code> 下的 <code>package.json</code> / <code>README</code> / <code>welcome.js</code> / <code>footer.pug</code> 一起从 1.0.3 提到 1.0.4；README 更新日志补 v1.0.4 一节，文件地图补 <code>navigation.css</code> 与 <code>appearance-fonts</code> / <code>appearance-backgrounds</code> / <code>fireflies</code> / <code>snow</code> / <code>ripple</code> 五个模块，回归脚本从 5 个加到 13 个</p>
+</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10-18</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>全站日夜首屏预置（新增 <code>source/js/inject/daynight-boot.js</code>）：访客没手动选过深浅色时，按当天真实日出日落定模式；坐标四级兜底（站点配置 → 位置服务 → 上次日历定位 → 按时区推经度），极昼极夜不切</li>
+<li>日夜判断收成一份共享实现：侧栏日历与美化面板的 <code>isDayNow</code> / <code>setMode</code> / <code>applyDayNight</code> 改为一律优先委托 <code>window.fomalDayNight</code>，取不到才用自带实现兜底；修「夜间点『随便逛逛』整页跳转后闪回白天」</li>
+<li>手动选择优先（带过期清理），「8 小时自动切换」听站点总开关 <code>window.fomalNightConfig.enabled</code>；顺手修掉切回白天时 <code>body</code> 误用 <code>classList.add('DarkMode')</code> 的老 bug</li>
+<li>首页卡片入场动画从 <code>animate__zoomIn</code> / 2s / 延迟 200ms / offset 30 改成 <code>animate__fadeIn</code> / 700ms / 无延迟 / offset 0，并删掉两组被注释掉的重复配置</li>
+<li>修 pjax 换页后入场动画哑火（新增 <code>scripts/wow-pjax-rehook.js</code>）：<code>pjax:complete</code> 后重放 <code>.js-pjax</code> 里失效的加类脚本，补 <code>wow.doSync(document.body)</code> 并清掉失效 boxes</li>
+<li>归档页年份胶囊居中改用 <code>track.scrollBy</code>（不再把整页顶下 61px、顶栏跟着抖）并新增 <code>--ar-bar-h</code>；<code>#page-header</code> 监听 <code>nav-fixed</code>、pjax 往返复用（<code>archive-page.js</code> / <code>archive-page.css</code>）</li>
+<li>评论区楼中楼表情面板被后一条评论压住点不动：<code>.twikoo .tk-comment:has(.OwO-open)</code> 提到 <code>z-index: 3</code>（<code>twikoo.css</code>）</li>
+</ol>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2026-10</p>
+</div></div><div class='timeline-item-content'><ol>
+<li>全站图片与字体外链改走公共 CDN（jsDelivr），不再依赖作者自建对象存储</li>
+<li>主题整理为 v1.0.0 并开源：站点配置与主题代码彻底分离，克隆即可搭建自己的站点</li>
+</ol>
+</div></div></div>
+<div class="note info flat"><p>这一页是「时间线插件」的示例：正文用 <code>{% timeline 标题 %}</code> 包起来，每段用 <code>&lt;!-- timeline 日期 --&gt;</code> 与 <code>&lt;!-- endtimeline --&gt;</code> 括住即可。改内容不用碰主题源码。</p>
+</div>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="author_top is-center"><div class="card-info-avatar"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/IMG_1009.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="focus_arrow" fallback-src="https://cdnjson.com/images/2023/03/30/Focus.jpg">🎯</g-emoji><span>专注学习中</span></div></div></div><b><div class="author-info__name">lzg</div></b><div class="author-info__description">放飞梦想的宅猪</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lzgblog" title="前往作者的Github"><span>Github主页</span><i class="faa-passing animated" style="padding-left:20px;display:inline-block;vertical-align:middle;"><svg class="icon" style="height:28px;width:28px;fill:currentColor;position:relative;top:5px"><use xlink:href="#icon-xiaoqiche"></use></svg></i></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/lzgblog" target="_blank" title="Github"><svg class="social_icon faa-tada" aria-hidden="true" style="width:1.15em;height:1.15em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/3546621115632267" target="_blank" title="B站"><svg class="social_icon faa-tada" aria-hidden="true" style="width:1.15em;height:1.15em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-bilibili"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:you@example.com" target="_blank" title="邮箱"><svg class="social_icon faa-tada" aria-hidden="true" style="width:1.15em;height:1.15em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxiang"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-gonggao"></use></svg></a><span style="font-weight:bold">公告栏</span></div><div class="announcement_content"><div class="anno2">
+  <div class="a-sect">
+    <div class="a-row a-flat"><span class="a-lb">关于这个模板</span></div>
+    <p style="margin:.4em 0 0">这是一个起点，写几篇文章，搭起自己的小站。</p>
+  </div>
+  <div class="a-sect">
+    <div class="a-row a-flat"><span class="a-lb">常用入口</span></div>
+    <div class="a-row"><span class="a-lb">文档</span><a class="a-chip" href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener"><i class="a-dot"></i>Hexo 文档</a><span class="a-note">官方</span></div>
+    <div class="a-row a-sub"><span class="a-lb"></span><a class="a-chip" href="https://github.com/fomalhaut1998/hexo-theme-fomalhaut" target="_blank" rel="noopener"><i class="a-dot"></i>主题仓库</a><span class="a-note">GitHub</span></div>
+  </div>
+</div>
+</div><div id="welcome-info"></div></div><div class="card-widget card-calendar" id="aside-calendar"><div class="item-headline"><i class="icon-rili"></i><span>日历</span></div><div class="item-content"><div class="cal-skeleton">日历加载中…</div>
+<link rel="stylesheet" href="/css/aside-calendar.css?v=20261002">
+<script src="/js/aside-calendar.js?v=20261002"></script>
+</div></div><div class="card-widget card-countdown" id="aside-countdown"><div class="item-headline"><i class="icon-shijian"></i><span>倒计时</span></div><div class="item-content"><div class="cal-skeleton">倒计时加载中…</div>
+<script>
+  (function () {
+    function up() {
+      var f = window.fomalAsideCalendar;
+      if (!f) return;
+      // 用 layoutCards 而不是只搬自己：pjax 换页时本内联脚本可能比
+      // /js/aside-calendar.js（外部脚本，要等异步加载）先跑，只搬自己会把两张卡顺序弄反。
+      if (f.layoutCards) f.layoutCards();
+      else if (f.hoistCard) f.hoistCard('aside-countdown');
+    }
+    up();   // 解析期就能摆（本卡在公告栏之后解析）
+    document.addEventListener('DOMContentLoaded', up);
+  })();
+</script>
+</div></div><div class="sticky_layout"><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(94, 49, 19)">Hexo<sup>1</sup></a><a href="/tags/Fomalhaut/" style="font-size: 1.15em; color: rgb(108, 180, 106)">Fomalhaut<sup>1</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 1.15em; color: rgb(13, 164, 46)">标签<sup>1</sup></a><a href="/tags/POI/" style="font-size: 1.15em; color: rgb(93, 50, 55)">POI<sup>1</sup></a><a href="/tags/Excel/" style="font-size: 1.15em; color: rgb(118, 65, 44)">Excel<sup>1</sup></a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(151, 96, 63)">hexo<sup>1</sup></a><a href="/tags/github/" style="font-size: 1.3em; color: rgb(138, 54, 0)">github<sup>2</sup></a><a href="/tags/git/" style="font-size: 1.15em; color: rgb(81, 128, 102)">git<sup>1</sup></a><a href="/tags/springboot/" style="font-size: 1.45em; color: rgb(79, 99, 130)">springboot<sup>13</sup></a><a href="/tags/mysql/" style="font-size: 1.15em; color: rgb(163, 189, 192)">mysql<sup>1</sup></a><a href="/tags/jdbc/" style="font-size: 1.15em; color: rgb(138, 196, 121)">jdbc<sup>1</sup></a><a href="/tags/mybatis/" style="font-size: 1.15em; color: rgb(136, 77, 170)">mybatis<sup>1</sup></a><a href="/tags/rabbitmq/" style="font-size: 1.15em; color: rgb(94, 138, 118)">rabbitmq<sup>1</sup></a><a href="/tags/elasticsearch/" style="font-size: 1.15em; color: rgb(14, 37, 189)">elasticsearch<sup>1</sup></a><a href="/tags/security/" style="font-size: 1.15em; color: rgb(89, 161, 118)">security<sup>1</sup></a><a href="/tags/thymeleaf/" style="font-size: 1.3em; color: rgb(186, 9, 118)">thymeleaf<sup>2</sup></a><a href="/tags/cache/" style="font-size: 1.15em; color: rgb(138, 138, 133)">cache<sup>1</sup></a><a href="/tags/redis/" style="font-size: 1.15em; color: rgb(57, 99, 124)">redis<sup>1</sup></a><a href="/tags/starter/" style="font-size: 1.15em; color: rgb(106, 31, 198)">starter<sup>1</sup></a><a href="/tags/task/" style="font-size: 1.15em; color: rgb(47, 0, 171)">task<sup>1</sup></a></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">格言🧬</p><div class="bg-ad"><div>再看看那个光点，它就在这里，这是家园，这是我们 —— 你所爱的每一个人，你认识的每一个人，你听说过的每一个人，曾经有过的每一个人，都在它上面度过他们的一生✨</div><div class="btn-xz-box"><a class="btn-xz" href="/box/astronomy/">点击开启星辰之旅</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">猜你想看💡</p><ul class="ft-links"><li><a href="/archives/">开源指南</a><a href="/box/nav/">网址导航</a></li><li><a href="/social/link/">我的朋友</a><a href="/comments/">留点什么</a></li><li><a href="/personal/about/">关于作者</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/box/gallery/">我的画廊</a><a href="/site/time/">建设进程</a></li><li><a href="/site/census/">网站统计</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链⌛</p><div class="ft-img-group"><div class="img-group-item"><a href="https://example.com/" title="本站"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/avatar.webp" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" title="Hexo"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1036/100/100" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1039/100/100" alt=""/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://example.org/" title="示例站点 A"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1018/100/100" alt=""/></a></div><div class="img-group-item"><a href="javascript:void(0)" title="广告位招租"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1044/100/100" alt=""/></a></div><div class="img-group-item"><a href="javascript:void(0)" title="广告位招租"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1015/100/100" alt=""/></a></div><div class="img-group-item"><a href="javascript:void(0)" title="广告位招租"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1016/100/100" alt=""/></a></div><div class="img-group-item"><a href="javascript:void(0)" title="广告位招租"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picsum.photos/id/1018/100/100" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2026</b></span><span><b>&nbsp;&nbsp;By lzg</b></span></div><div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v6.3.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/yourname/hexo-theme-fomalhaut" style="margin-inline:5px" title="主题Fomalhaut v1.0.5(基于Butterfly v4.3.1)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/badge/Theme-Fomalhaut-6513df.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用多线部署，主线路托管于Vercel"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://user.51.la/" style="margin-inline:5px" title="本站数据分析得益于51la技术支持"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Analytics-51la-3db1eb.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://npmmirror.com/" style="margin-inline:5px" title="本站使用npmmirror为部分静态资源加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/badge/CDN-npmmirror.svg" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本网站源码由Github提供存储仓库"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-GitHub-d021d6.svg" alt=""/></a></p></div></footer></div><div id="rightside"><div id="rightside-config-hide"><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js?v=20261005-scroll1"></script><script src="/js/main.js?v=20261005-scroll1"></script><script src="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.umd.js"></script><script src="https://registry.npmmirror.com/instant.page/5.1.0/files/instantpage.js" type="module"></script><script src="https://registry.npmmirror.com/vanilla-lazyload/17.3.1/files/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"></div><script defer charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script><script defer src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script defer src="/js/51la.js"></script><script src="https://registry.npmmirror.com/jquery/3.6.0/files/dist/jquery.min.js"></script><script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script><script async src="https://registry.npmmirror.com/clipboard/2.0.10/files/dist/clipboard.min.js"></script><script async src="https://npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="/js/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_glcijzcpx7f.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_gkavascgf3n.js"></script><script async src="//at.alicdn.com/t/c/font_5239918_ta23cg9gek.js"></script><canvas id="universe"></canvas><canvas id="snow"></canvas><script defer src="/js/notify.js"></script><script defer src="/js/lunar.js"></script><script defer src="/js/data/voyager1.js"></script><script defer src="/js/data/holidays.js"></script><script defer src="/js/modules/console-art.js"></script><script defer src="/js/modules/shell.js?v=20261011-stage3"></script><script defer src="/js/modules/snow.js?v=20261010-snow1"></script><script defer src="/js/modules/effects.js?v=20261010-snow1"></script><script defer src="/js/modules/reading.js?v=20261015-fps2"></script><script defer src="/js/modules/nav.js?v=20261005-scroll1"></script><script defer src="/js/modules/cursor.js?v=20261015-fps2"></script><script defer src="/js/modules/footer-time.js?v=20261006"></script><script defer src="/js/modules/appearance-fonts.js?v=20261010-preview1"></script><script defer src="/js/modules/appearance-backgrounds.js?v=20261011-bgflash1"></script><script defer src="/js/modules/fireflies.js?v=20261010-fireflies1"></script><script defer src="/js/modules/ripple.js?v=20261014-ripple1"></script><script defer src="/js/modules/settings.js?v=20261015-custom1"></script><script defer src="/js/fomal.js"></script><script defer src="/js/wechat-qr.js"></script><script defer src="/js/festival.js"></script><script defer src="/js/author-status.js"></script><script defer src="/js/stats.js?v=20261005"></script><script defer src="/js/footer-music.js?v=20261005"></script><script defer src="/js/pjax-guard.js?v=20261005"></script><script defer src="/js/inject/search-lazy.js?v=20261011b"></script><script src="/js/inject/scroll-gap-fix.js?v=20261011"></script><script src="/js/inject/webinfo-card.js"></script><script src="/js/inject/ft-ad-extra.js"></script><script src="/js/inject/pc-local-link.js"></script><script defer src="/js/inject/about-route-probe.js?v=20261006"></script><link rel="stylesheet" href="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.js"></script><script src="https://npm.elemecdn.com/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  ;['tocScrollFn', 'scrollCollect'].forEach(name => {
+    const handler = window[name]
+    if (!handler) return
+    window.removeEventListener('scroll', handler)
+    if (typeof handler.cancel === 'function') handler.cancel()
+    window[name] = null
+  })
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//events.vercount.one/js"></script></div><!-- hexo injector body_end start --><script id="swiper-lazyload-fix">
+(function () {
+  if (window.__swiperLazyFix) return;
+  window.__swiperLazyFix = true;
+
+  function sync () {
+    try {
+      var inst = window.lazyLoadInstance;
+      if (inst && typeof inst.update === 'function') inst.update();
+    } catch (e) {}
+  }
+
+  function burst () {
+    [0, 120, 300, 700, 1500, 2600].forEach(function (d) { setTimeout(sync, d); });
+  }
+
+  // 1) 首次加载 + 站内 pjax 返回后：等异步的 data-pjax 脚本（swiper_init.js）跑完再补登记
+  document.addEventListener('pjax:complete', burst);
+  window.addEventListener('load', burst);
+  if (document.readyState !== 'loading') burst();
+  else document.addEventListener('DOMContentLoaded', burst);
+
+  // 2) Swiper 重建循环克隆时会增删 .blog-slider__wrp 的子节点（pjax 换页后容器会被替换，故持续重挂）
+  setTimeout(function watchWrp () {
+    var wrp = document.querySelector('.blog-slider__wrp');
+    if (wrp && wrp !== window.__swiperLazyWrp) {
+      try { if (window.__swiperLazyMo) window.__swiperLazyMo.disconnect(); } catch (e) {}
+      window.__swiperLazyWrp = wrp;
+      try {
+        window.__swiperLazyMo = new MutationObserver(function () {
+          clearTimeout(window.__swiperLazyTimer);
+          window.__swiperLazyTimer = setTimeout(sync, 100);
+        });
+        window.__swiperLazyMo.observe(wrp, { childList: true });
+      } catch (e) {}
+    }
+    setTimeout(watchWrp, 800);
+  }, 800);
+})();
+</script><script id="wow-pjax-rehook">
+(function () {
+  if (window.__wowPjaxRehook) return;
+  window.__wowPjaxRehook = true;
+
+  // 插件生成的加类脚本特征：调 classList.add 又写 data-wow-duration 的，就是它
+  function isWowInjector(code) {
+    return !!code && code.indexOf('classList.add') > -1 && code.indexOf('data-wow-duration') > -1;
+  }
+
+  // 把 .js-pjax 里哑火的加类脚本重放一遍（照抄 pjax.pug 的重放手法：换新节点才会执行）
+  function replayInjectors() {
+    var scripts = document.querySelectorAll('.js-pjax script');
+    for (var i = 0; i < scripts.length; i++) {
+      var old = scripts[i];
+      if (old.getAttribute('data-pjax') !== null) continue; // 主题自己会重放，别跑两遍
+      var code = old.text || old.textContent || old.innerHTML || '';
+      if (!isWowInjector(code)) continue;
+      var neu = document.createElement('script');
+      neu.setAttribute('data-wow-pjax-replay', '');
+      neu.appendChild(document.createTextNode(code));
+      old.parentNode.replaceChild(neu, old);
+    }
+  }
+
+  // wow 实例兜底 + 清理被 pjax 换掉的旧节点（否则 wow.boxes 会一直 accumulate）
+  function resyncBoxes() {
+    var wow = window.wow;
+    if (!wow && typeof window.WOW === 'function') {
+      // 等价于 node_modules/hexo-butterfly-wowjs/lib/wow_init.js
+      window.wow = new window.WOW({
+        boxClass: 'wow',
+        animateClass: 'animate__animated',
+        offset: 0,
+        mobile: false,
+        live: true
+      });
+      window.wow.init();
+      return;
+    }
+    if (!wow) return;
+    try {
+      if (wow.boxes && wow.boxes.length) {
+        wow.boxes = wow.boxes.filter(function (el) { return el && document.contains(el); });
+      }
+      // 关键一步：让 wow 自己把新插入的 .wow 卡片登记进 boxes（会顺手隐藏 + 置 scrolled）
+      if (typeof wow.doSync === 'function') {
+        wow.doSync(document.body);
+      } else if (wow.boxes && wow.applyStyle) {
+        // 老版本 wow.js 没有 doSync，手动补：从没被 wow 摸过的块（没有 inline visibility）收进来
+        var nodes = document.querySelectorAll('.wow');
+        for (var i = 0; i < nodes.length; i++) {
+          var el = nodes[i];
+          if (el.style.visibility) continue;
+          if (wow.all && wow.all.indexOf(el) > -1) continue;
+          wow.boxes.push(el);
+          if (wow.all) wow.all.push(el);
+          wow.applyStyle(el, true);
+        }
+        wow.scrolled = true;
+      }
+      // 再补一次 scroll 事件，保证 50ms 轮询这一拍立刻跑
+      window.dispatchEvent(new Event('scroll'));
+    } catch (e) {}
+  }
+
+  function run() {
+    try { replayInjectors(); } catch (e) {}
+    try { resyncBoxes(); } catch (e) {}
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    // 主题的 pjax:complete 监听器（pjax.pug）先重放 script[data-pjax]（轮播/磁贴注入脚本在里面），
+    // 所以这里延后一拍，保证重放顺序在它之后；300ms 那次兜底给异步补内容的场景。
+    setTimeout(run, 0);
+    setTimeout(run, 300);
+  });
+
+  // 调试用：控制台里 window.__wowPjaxRehookNow() 可手动触发一次
+  window.__wowPjaxRehookNow = run;
+})();
+</script> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><a class="magnet_link_more"  href="/categories/" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(33.333333333333336% - 5px);background: #e9e9e9;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: var(--text-bg-hover)}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeIn');
+    arr[i].setAttribute('data-wow-duration', '700ms');
+    arr[i].setAttribute('data-wow-delay', '0');
+    arr[i].setAttribute('data-wow-offset', '0');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeIn');
+    arr[i].setAttribute('data-wow-duration', '700ms');
+    arr[i].setAttribute('data-wow-delay', '0');
+    arr[i].setAttribute('data-wow-offset', '0');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax src="/js/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<container><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></container>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/site/census/'|| '/site/census/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://cdn.jsdelivr.net/gh/yourname/gitcalendar-data@main/data.json",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'yourname')
+    }
+  </script><!-- hexo injector body_end end --><script id="ai-chat-boot">window.AI_CHAT_CONFIG={"enable":true,"api_base":"/api","api_key":"via-proxy","api_key_file":".ai-chat-key","proxy_api_base":"/api","proxy_key_stub":"via-proxy","model":"deepseek-chat","temperature":0.7,"max_tokens":8192,"system_prompt":"你是这个博客的页面助手，语气自然、简洁、像朋友聊天。默认用中文回答；\n只依据下面给出的页面内容和对话历史作答，页面里没有的信息不要编造，确实不知道就直说。\n回答用 Markdown 排版，能用列表就用列表，避免长篇大论。\n","welcome":"你好，我是这个页面的 AI 助手。可以帮你总结当前页面、解释名词、回答关于本页的问题。","first_question":"请用中文总结这个页面的内容：先用一句话概括，再列 3-5 条要点。","max_history":12,"max_page_chars":32000,"storage_key":"ai_chat_history_v1","panel_width":460,"panel_height":640,"panel_right":88,"timeout_ms":10000,"proxied":true,"has_key":true};</script><script defer src="/js/ai-chat.js?v=mvml4p2j-1dwd"></script></body></html>
